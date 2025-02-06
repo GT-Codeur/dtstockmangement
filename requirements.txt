@@ -7,3 +7,4 @@ pydantic~=2.10.6
 uvicorn~=0.34.0
 pydantic[email]
 jinja2~=3.1.5
+python-multipart

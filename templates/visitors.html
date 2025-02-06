@@ -1,0 +1,58 @@
+<div class="p-10">
+
+    <div class="p-10">
+        <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">Welcome to D.T Availability stalk</h1>
+        <p class="text-lg font-normal lg:text-xl">Here is state of our stock:</p>
+        <a href="#" class="visibility: hidden inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+        Learn more
+            <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+        </a>
+    </div>
+
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full  text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="visibility: hidden">
+                    <span class="sr-only">Image</span>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Product
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Qty
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Crate qty
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="visibility: hidden">
+                    <img src="" class=" md:w-32 max-w-full max-h-full" alt="">
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    {{item.description}}
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    {{item.quantity}}
+                </td>
+                <td class="px-6 py-4">
+                    {% set total_of_crate = item.quantity/12 %}
+                    {% set total_of_crate = total_of_crate|int %}
+                    {% set remainder = item.quantity % 12 %}
+                    {{ total_of_crate|int }}
+                    {% if total_of_crate != 0 %}
+                        and {{remainder}} bottle(s)
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>

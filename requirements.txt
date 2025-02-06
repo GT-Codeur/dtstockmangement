@@ -1,0 +1,9 @@
+PyJWT~=2.10.1
+fastapi~=0.115.7
+sqlmodel~=0.0.22
+passlib~=1.7.4
+python-dotenv~=1.0.1
+pydantic~=2.10.6
+uvicorn~=0.34.0
+pydantic[email]
+jinja2~=3.1.5
